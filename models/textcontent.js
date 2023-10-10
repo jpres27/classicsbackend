@@ -1,28 +1,15 @@
 const mongoose = require('mongoose')
 
 const textcontentSchema = new mongoose.Schema({
-    book: {
-        type: String,
-        minLength: 2,
-        required: true
-    },
-    chapterNumber: {
-        type: Number,
-        required: true
-    },
-    chapter: {
-        type: String,
-        required: true
-    },
-    analectNumber: {
-        type: Number,
-        required: false
-    },
-    content: {
-        type: String,
-        minLength: 3,
-        required: true
-    }
+    title: String,
+    chapters: [{
+        ch: Number,
+        chTitle: String,
+        lines: [{
+            line: Number,
+            content: String
+        }]
+    }]
 })
 
 textcontentSchema.set('toJSON', {
